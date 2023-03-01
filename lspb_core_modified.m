@@ -8,9 +8,9 @@ function [s, sd, sdd] = lspb_core_modified(q01, q0, q1, te, f, V)
         [s_b, sd_b, sdd_b] = lspb(q1, q0, num_pt/2);
     else
         [s_f, sd_f, sdd_f] = lspb(q01, q1, num_pt/2, V);
-        [s_z1, sd_z1, sdd_z1] = lspb(q1, q1, num_pt/2, V);
+        [s_z1, sd_z1, sdd_z1] = lspb(q1, q1, num_pt/4, V);
         [s_b, sd_b, sdd_b] = lspb(q1, q0, num_pt/2, V);
-        [s_z2, sd_z2, sdd_z2] = lspb(q0, q0, num_pt/2, V);
+        [s_z2, sd_z2, sdd_z2] = lspb(q0, q0, num_pt/4, V);
     end
     s = [s_f;s_z1;s_b;s_z2];
     sd = [sd_f;sd_z1;sd_b;sd_z2];
